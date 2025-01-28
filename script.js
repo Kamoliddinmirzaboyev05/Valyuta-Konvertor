@@ -1,4 +1,13 @@
+const loaderBack = document.querySelector(".loader-back");
+
 document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    loaderBack.style.opacity = "0";
+
+    setTimeout(() => {
+      loaderBack.classList.add("hidden");
+    }, 500);
+  }, 2000);
   const select = document.querySelectorAll("select");
   const lastUpdate = document.querySelector(".lastUpdate");
   const nextUpdate = document.querySelector(".nextUpdate");
@@ -38,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const calculate = (DB) => {
     nameKeys = Object.keys(DB.conversion_rates);
     nameValues = Object.values(DB.conversion_rates);
-    
   };
 
   // get money keys and values function
@@ -47,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     keys.forEach((key, index) => {
       if (key == select1.value) {
         firstVal = values[index];
-        output.value = input.value / values[0] * secondVal
+        output.value = (input.value / values[index]) * secondVal;
       }
       if (key == select2.value) {
         secondVal = values[index];
@@ -60,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   input.addEventListener("input", () => {
     sendData(nameKeys, nameValues);
-    
   });
   select1.addEventListener("change", () => {
     sendData(nameKeys, nameValues);
