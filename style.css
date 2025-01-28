@@ -159,12 +159,14 @@ select option {
   body {
     background-image: url(/img/mobile2.jpg) !important;
     background-position: center;
-    background-size: 120%;
+    background-size: 150%;
     background-repeat: no-repeat;
   }
   .app {
-    padding: 30px;
-    
+    padding: 15px;
+  }
+  .update{
+    padding-top: 50px;
   }
   .box {
     width: 400px;
